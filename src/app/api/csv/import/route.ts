@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
       data: {
         userId: user.id,
         title: "CSV Import Complete",
-        message: Imported  of  rows into ,
+        message: `Imported ${results.imported} of ${results.total} rows into ${tableName}`,
         type: results.failed > 0 ? "warning" : "success",
       },
     });
