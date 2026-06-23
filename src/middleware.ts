@@ -11,7 +11,13 @@ export default withAuth(
         const path = req.nextUrl.pathname;
 
         // Public paths — no auth needed
-        if (path === "/" || path.startsWith("/login") || path.startsWith("/api/auth")) {
+        if (
+          path === "/" ||
+          path.startsWith("/login") ||
+          path.startsWith("/api/auth") ||
+          path === "/api/register" ||
+          path === "/api/health"
+        ) {
           return true;
         }
 
@@ -21,7 +27,6 @@ export default withAuth(
         }
 
         // Page routes — let the page component handle redirects
-        // (Server components use getCurrentUser, client components use useSession)
         return true;
       },
     },
